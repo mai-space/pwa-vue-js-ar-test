@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  baseURL: '/pwa-vue-js-ar-test/',
+  base: '/pwa-vue-js-ar-test/',
   plugins: [
     vue(),
     VitePWA({
@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'Park Explorer AR',
         short_name: 'Park AR',
-        start_url: '/',
+        start_url: '/pwa-vue-js-ar-test/',
         display: 'standalone',
         theme_color: '#4CAF50',
         background_color: '#ffffff',
