@@ -4,12 +4,12 @@ import ARScene from '../components/ARScene.vue';
 import QRGenerator from "../components/QRGenerator.vue";
 
 const routes = [
-  { path: '/', component: QRScanner },
+  { path: '/scan', component: QRScanner },
   { path: '/generator', component: QRGenerator },
   { path: '/marker/:id', component: ARScene }
 ];
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/pwa-vue-js-ar-test/'),
   routes
 });

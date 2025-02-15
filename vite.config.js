@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,mp3,glb}']
+        globPatterns: ['**/*.{js,css,html,png,mp3,glb}'],
       },
       manifest: {
         name: 'Park Explorer AR',
@@ -17,12 +17,15 @@ export default defineConfig({
         display: 'standalone',
         theme_color: '#4CAF50',
         background_color: '#ffffff',
-      }
-    })
+      },
+    }),
   ],
+  build: {
+    outDir: 'docs', // Change the output directory to 'docs'
+  },
   server: {
     watch: {
-      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**']
-    }
-  }
+      ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**'],
+    },
+  },
 });
