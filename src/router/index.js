@@ -10,6 +10,6 @@ const routes = [
 ];
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/pwa-vue-js-ar-test/'),
   routes
 });
