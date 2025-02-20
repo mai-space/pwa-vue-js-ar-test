@@ -9,8 +9,14 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        maximumFileSizeToCacheInBytes: 4000000,
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         globPatterns: ['**/*.{js,css,html,png,mp3,glb}'],
+        runtimeCaching: [
+          {
+            urlPattern: /index-BFZS9czy\.js$/,
+            handler: 'NetworkOnly' // Do not cache
+          }
+        ]
       },
       manifest: {
         name: 'Park Explorer AR',
@@ -30,4 +36,9 @@ export default defineConfig({
       ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**'],
     },
   },
+  resolve: {
+    alias: {
+      three: 'three' // Ensure all packages use the same Three.js version
+    }
+  }
 });
