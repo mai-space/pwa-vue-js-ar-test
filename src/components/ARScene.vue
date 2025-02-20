@@ -52,13 +52,13 @@ export default {
       patternUrl: '/pwa-vue-js-ar-test/assets/marker/12345/pattern-12345.patt',
       changeMatrixMode: 'cameraTransformMatrix'
     });
-    scene.visible = false;
+    // scene.visible = false;
 
     // Load the .glb model
     const loader = new GLTFLoader();
     loader.load('/pwa-vue-js-ar-test/assets/marker/12345/model.glb', (gltf) => {
       const model = gltf.scene;
-      model.scale.set(0.5, 0.5, 0.5); // Adjust scale if needed
+      model.scale.set(14, 14, 14); // Adjust scale if needed
       model.position.set(0, 0, 0); // Adjust position
       scene.add(model);
     }, undefined, (error) => {
