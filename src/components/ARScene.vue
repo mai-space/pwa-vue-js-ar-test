@@ -65,6 +65,14 @@ export default {
       console.error('Error loading GLB model:', error);
     });
 
+    // Add ambient light for soft lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientLight);
+
+    // Add a directional light for better shading
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    directionalLight.position.set(10, 10, 10);
+    scene.add(directionalLight);
 
     function animate() {
       requestAnimationFrame(animate);
