@@ -4,6 +4,7 @@
 
 <script>
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { ArToolkitSource, ArToolkitContext, ArMarkerControls } from '@ar-js-org/ar.js/three.js/build/ar-threex.js';
 
 export default {
@@ -53,15 +54,17 @@ export default {
     });
     scene.visible = false;
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshNormalMaterial({
-      transparent: true,
-      opacity: 0.5,
-      side: THREE.DoubleSide
+    // Load the .glb model
+    const loader = new GLTFLoader();
+    loader.load('/pwa-vue-js-ar-test/assets/marker/12345/model.glb', (gltf) => {
+      const model = gltf.scene;
+      model.scale.set(0.5, 0.5, 0.5); // Adjust scale if needed
+      model.position.set(0, 0, 0); // Adjust position
+      scene.add(model);
+    }, undefined, (error) => {
+      console.error('Error loading GLB model:', error);
     });
-    const cube = new THREE.Mesh(geometry, material);
-    cube.position.y = geometry.parameters.height / 2;
-    scene.add(cube);
+
 
     function animate() {
       requestAnimationFrame(animate);
